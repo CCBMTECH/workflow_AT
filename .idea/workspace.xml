@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e1a8bba-bd34-448d-bcb7-8b7466a4e25f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Nouveau dossier/ccbm_transit/data/dossier_stage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/dossier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/partner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/res_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/transit_dossier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/transit_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/transit_stage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/ccbmtransit_security.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/dossier_views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partner_views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/transit_menu_views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/transit_users_views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ccbm_transit/.idea/ccbm_transit.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sale_revision/sale/.idea/sale.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sale_revision/sales_team/.idea/sales_team.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../transitccbm/.idea/transitccbm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/.idea/ccbm.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/controllers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/controllers/controllers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/data/ccbm_academy_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/demo/demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/models/cours.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/models/partner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/models/session.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/views/partner_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/views/session_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/views/templates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ccbm/views/views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ir_sequence_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ccbmtr_dossier.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/crm_team.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/product_product.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/product_template.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/res_partner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sale_order_line.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/templates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/.idea/siggi_library.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/controllers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/models/library_book.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/models/library_book_categ.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/models/library_book_rent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/models/res_partner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/security/groups.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/views/library_book.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/views/library_book_categ.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siggi_library/views/library_book_rent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../odoo9BuildingModule.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../odoo9BuildingModule.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HqoPh7oZ7k0a44medYmPqVwKrS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nabyFall/Desktop/FormationOdoo/addons/ccbm_transit/models&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nabyFall\Desktop\FormationOdoo\addons\ccbm_transit\models" />
+      <recent name="C:\Users\nabyFall\Desktop\FormationOdoo\addons\ccbm_transit\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nabyFall\Desktop\FormationOdoo\addons\ccbm_transit\views" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e1a8bba-bd34-448d-bcb7-8b7466a4e25f" name="Changes" comment="" />
+      <created>1669021952430</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669021952430</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

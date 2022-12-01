@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='transit_dossier_action' model='ir.actions.act_window'>
+        <field name="name">Dossier Dédouane</field>
+        <field name="res_model">dossier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Form View -->
+    <record id="transit_dossier_view_form" model="ir.ui.view">
+        <field name="name">Dossier</field>
+        <field name="model">dossier</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="client_id" domain="[]"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="date_open"/>
+                            <field name="date_closed"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="dossier_view_tree" model="ir.ui.view">
+        <field name="name">Dossier Dedoune</field>
+        <field name="model">dossier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="stage_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="dossier_view_search" model="ir.ui.view">
+        <field name="name">Dossier Search</field>
+        <field name="model">dossier</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <!-- <field name="borrower_id"/> -->
+                <field name="stage_id"/>
+                <!-- <filter string="" name="on_rent" domain="[('stage_id.book_state','=','borrowed')]"/>-->
+            </search>
+        </field>
+    </record>
+
+</odoo>

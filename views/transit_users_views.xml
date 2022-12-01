@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="transit_users_view_tree" model="ir.ui.view">
+            <field name="name">res.users.inherit.tree</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='lang']" position="replace">
+                    <field name="service_id" />
+                </xpath>
+            </field>
+        </record>
+
+        <!-- View Form -->
+        <record id="transit_users_view_form" model="ir.ui.view">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@name='preferences']" position="after">
+                    <page name="service_access" string="Services">
+                        <group name="Services" string="Services">
+                            <field name="service_id" />
+                            <field name="is_intervener"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id='transit_users_action' model='ir.actions.act_window'>
+            <field name="name">Intervenants</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ccbm_transit_service,ccbm_transit.transit_service,model_transit_service,,1,1,1,1
+access_ccbm_transit_res_users,ccbm_transit.res_users,model_res_users,base.group_user,1,1,1,1
+
+access_ccbm_transit_partner,ccbm_transit.res_partner,model_res_partner,base.group_user,1,1,0,0
+access_ccbm_transit_partner,ccbm_transit.res_partner,model_res_partner,group_ccbmtransit_manager,1,1,1,1
+access_ccbm_transit_partner,ccbm_transit.res_partner,model_res_partner,group_ccbmtransit_assistant,1,1,1,1
+
+access_ccbm_transit_dossier,ccbm_transit.dossier,model_dossier,,1,1,1,1
+access_ccbm_transit_stage,ccbm_transit.stage,model_transit_stage,,1,1,1,1

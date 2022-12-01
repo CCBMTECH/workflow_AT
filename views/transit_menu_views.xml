@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top menu item -->
+    <!--
+        This menu item's purpose is to overwrite another one defined in
+        the base module in order to set new groups.
+    -->
+
+    <menuitem id="transit_menu_root"
+        name="Africa Transit"
+        sequence="25">
+
+        <!-- Menu Services -->
+        <menuitem id="transit_menu_Service"
+                  name="Services"
+                  sequence="10">
+
+            <menuitem id="menu_transit_services"
+                action="transit_service_tree_action"
+                sequence="10"/>
+
+            <menuitem id="menu_transit_users"
+                name="Intervenants"
+                action="base.action_res_users"
+                sequence="20"/>
+            <menuitem id="menu_transit_res_partner" name="Clients" action="res_partner_action_client" sequence="30"/>
+            <!-- <menuitem id="menu_transit_res_partner" name="Clients" action="contacts.action_contacts" sequence="30"/> -->
+
+        </menuitem>
+
+        <menuitem id="transit_dossier_menu"
+                  name="Dossier"
+                  action="transit_dossier_action"
+                  sequence="5"/>
+
+        <!-- Configurations -->
+        <menuitem
+        id="transit_menu_config"
+        name="Configurations"
+        sequence="20" />
+
+    </menuitem>
+
+</odoo>

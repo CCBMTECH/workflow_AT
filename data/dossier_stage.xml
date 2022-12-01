@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="stage_assistant" model="transit.stage">
+        <field name="name">Assistant</field>
+        <field name="sequence">1</field>
+        <field name="dossier_state">assistant</field>
+    </record>
+    <record id="stage_dga" model="transit.stage">
+        <field name="name">DGA</field>
+        <field name="sequence">5</field>
+        <field name="dossier_state">dga</field>
+    </record>
+    <record id="stage_dg" model="transit.stage">
+        <field name="name">DG</field>
+        <field name="sequence">15</field>
+        <field name="dossier_state">dg</field>
+    </record>
+    <record id="stage_transit" model="transit.stage">
+        <field name="name">CT DD</field>
+        <field name="sequence">25</field>
+        <field name="dossier_state">transit</field>
+    </record>
+    <record id="stage_rl" model="transit.stage">
+        <field name="name">Logistique JF</field>
+        <field name="sequence">35</field>
+        <field name="dossier_state">transit</field>
+    </record>
+    <record id="stage_dga_honoraires" model="transit.stage">
+        <field name="name">DGA H</field>
+        <field name="sequence">45</field>
+        <field name="dossier_state">dga_honoraires</field>
+    </record>
+    <record id="stage_transit_devis" model="transit.stage">
+        <field name="name">CT Devis</field>
+        <field name="sequence">55</field>
+        <field name="dossier_state">transit_devis</field>
+    </record>
+    <record id="stage_dga_cond_paie" model="transit.stage">
+        <field name="name">DGA CP</field>
+        <field name="sequence">65</field>
+        <field name="dossier_state">dga_cond_paie</field>
+    </record>
+    <record id="stage_dg_devis" model="transit.stage">
+        <field name="name">DG VD</field>
+        <field name="sequence">75</field>
+        <field name="fold" eval="True"/>
+        <field name="dossier_state">dg_devis</field>
+    </record>
+</odoo>

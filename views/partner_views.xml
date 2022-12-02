@@ -36,7 +36,7 @@
                            attrs="{'required' : [('type', '=', 'contact'),('is_company', '=', True)], 'invisible': [('is_company','=', False)]}"/>
                 </xpath>
                 <xpath expr="/form/sheet/group[1]/group[2]" position="before">
-                    <group name="clients_transit">
+                    <group name="clients_transit" priority="1">
                         <separator string="Données client"/>
                         <field name="ppm" string="Code PPM"/>
                         <field name="cpt_client" string="Compte client"/>
@@ -54,6 +54,14 @@
                         <field name="ref"
                                string="Référence"
                                attrs="{'invisible': [('is_company','=', False)]}"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//group[@name='clients_transit']" position="before">
+                    <group string="Infos compte client" name="accounting_client" priority="2">
+                        <field name="currency_id" invisible="1"/>
+                        <field name="property_account_receivable_id" widget="account_type_selection"/>
+                        <field name="property_account_payable_id" widget="account_type_selection"/>
                     </group>
                 </xpath>
 

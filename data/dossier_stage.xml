@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<odoo>
     <record id="stage_assistant" model="transit.stage">
         <field name="name">Assistant</field>
         <field name="sequence">1</field>
@@ -43,6 +43,12 @@
     <record id="stage_dg_devis" model="transit.stage">
         <field name="name">DG VD</field>
         <field name="sequence">75</field>
+        <field name="fold" eval="True"/>
+        <field name="dossier_state">dg_devis</field>
+    </record>
+    <record id="stage_dg_devis" model="transit.stage">
+        <field name="name">DG VD</field>
+        <field name="sequence">85</field>
         <field name="fold" eval="True"/>
         <field name="dossier_state">dg_devis</field>
     </record>

@@ -36,5 +36,7 @@
         'views/transit_users_views.xml',
         'views/transit_menu_views.xml',
         'data/dossier_stage.xml'
-    ]
+    ],
+    'application': True,
+    'installable': True,
 }

@@ -14,6 +14,7 @@ class Partner(models.Model):
     type_piece = fields.Selection(
         [('cni', 'CNI'), ('passport', 'Passport')],
         required=True, index=True)
+    client_ref = fields.Char(string="Reference Client", copy=False)
 
     def _compute_user_transit(self):
         if (self.env.user.has_group('ccbm_transit.group_ccbmtransit_manager')

@@ -15,19 +15,76 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button string="Expedier" type="object" name="action_send"
+                            class="oe_highlight"/>
+<!--                        <button string="Lancer" type="object" name="action_in_progress"-->
+<!--                                states="submit" class="oe_highlight"/>-->
+<!--                        <button string="Cloturer" type="object" name="action_done"-->
+<!--                                states="in_progress" class="oe_highlight"/>-->
+<!--                        <button string="Remettre en brouillon" type="object" name="action_wizard_draft"-->
+<!--                                states="submit,in_progress,done"/>-->
+
                     <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
                 </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="state" invisible="1"/>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="client_id" domain="[]"/>
-                            <field name="description"/>
+                            <field name="repertoire"/>
+                            <field name="partner_id" domain="[]"/>
                         </group>
                         <group>
-                            <field name="date_open"/>
+                            <field name="create_date"/>
                             <field name="date_closed"/>
                         </group>
                     </group>
+                    <group string="Infos extra Client">
+                        <group>
+                            <field name="ordre_transit"/>
+                            <field name="connaissement"/>
+                            <field name="assurance"/>
+                        </group>
+                        <group>
+                            <field name="client_ref_id"/>
+                            <field name="reference"/>
+                        </group>
+                    </group>
+                    <group string="Montants">
+                        <group>
+                            <field name="currency_id" />
+                            <field name="honoraires" />
+                            <field name="amount_negotiate" />
+                        </group>
+                        <group>
+                            <field name="amount_passer" />
+                        </group>
+                    </group>
+                    <group string="Infos Marchandises">
+                        <group>
+                            <field name="regime"/>
+                            <field name="num_navire"/>
+                            <field name="cht_lta"/>
+                            <field name="expert"/>
+                        </group>
+                        <group>
+                            <field name="nb_colis"/>
+                            <field name="qty_complementary"/>
+                            <field name="destination"/>
+                        </group>
+                        <group>
+                            <field name="poids_net"/>
+                            <field name="poids_brut"/>
+                        </group>
+                        <group string="Notes infos internne">
+                            <field name="description"/>
+                        </group>
+                    </group>
+
                 </sheet>
             </form>
         </field>

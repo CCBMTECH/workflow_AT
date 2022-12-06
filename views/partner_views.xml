@@ -94,7 +94,7 @@
                         <group>
                             <separator string="Mode de paie"/>
                         <field string="Conditions de paiements" name="property_supplier_payment_term_id"
-                               options="{'no_open': True, 'no_create': True}" groups=""/>
+                               options="{'no_open': True, 'no_create': True}" groups="" readonly="True"/>
                     </group>
                     </group>
                 </xpath>
@@ -145,30 +145,6 @@
                     </page>
                 </xpath>
 
-            </field>
-        </record>
-
-        <!-- View Form Inherit from CRM to replace the button Opportunity -->
-        <record id="view_partners_form_transit" model="ir.ui.view">
-            <field name="name">view.res.partner.form.transit.inherited</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
-            <field eval="1" name="priority"/>
-            <field name="arch" type="xml">
-                <button name="action_view_opportunity" position="replace"></button>
-            </field>
-        </record>
-
-        <!-- View Form Inherit from Calendar to replace the button meeting -->
-        <record id="view_partners_form" model="ir.ui.view">
-            <field name="name">res_partner.view.form.calendar</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="calendar.view_partners_form"/>
-            <field eval="1" name="priority"/>
-            <field name="arch" type="xml">
-                <xpath expr="/tree/field[@name='activity_ids']" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath>
             </field>
         </record>
 

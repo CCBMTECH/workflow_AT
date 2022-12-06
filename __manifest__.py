@@ -35,6 +35,7 @@
         'views/transit_service_views.xml',
         'views/transit_users_views.xml',
         'views/transit_menu_views.xml',
+        'data/ir_sequence_data.xml',
         'data/dossier_stage.xml'
     ],
     'application': True,

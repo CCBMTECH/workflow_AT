@@ -33,7 +33,7 @@ class Stage(models.Model):
          ('dga_honoraires', 'GDA honoraires'),
          ('transit_devis', 'proposition Devis '),
          ('dga_cond_paie', 'DGA cond paie'),
-         ('dg_devis', 'DG valide Devis'),],
+         ('dg_devis', 'DG valide Devis')],
         'State', default="assistant")
 
 

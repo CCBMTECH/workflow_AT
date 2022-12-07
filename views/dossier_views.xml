@@ -4,7 +4,7 @@
     <record id='transit_dossier_action' model='ir.actions.act_window'>
         <field name="name">Dossier Dédouane</field>
         <field name="res_model">dossier</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
 
@@ -54,10 +54,10 @@
                             <field name="reference"/>
                         </group>
                     </group>
-                    <group string="Montants">
+                    <group string="Montants" groups="ccbm_transit.group_ccbmtransit_dga">
                         <group>
                             <field name="currency_id" />
-                            <field name="honoraires" />
+                            <field name="honoraires"/>
                             <field name="amount_negotiate" />
                         </group>
                         <group>
@@ -102,6 +102,83 @@
             </tree>
         </field>
     </record>
+
+    <!-- View Kanban -->
+    <record id="case_kanban_dossier_view" model="ir.ui.view">
+            <field name="name">transit.dossier.kanban</field>
+            <field name="model">dossier</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id" class="o_kanban_small_column o_opportunity_kanban"
+                    archivable="false" sample="1" js_class="crm_kanban">
+                    <field name="stage_id" options='{"group_by_tooltip": {"requirements": "Description"}}'/>
+                    <field name="color"/>
+                    <field name="priority"/>
+<!--                    <field name="kanban_state"/>-->
+                    <field name="user_id"/>
+                    <field name="partner_id"/>
+                    <field name="active"/>
+<!--                    <field name="recurring_revenue_monthly"/>-->
+<!--                    <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'-->
+<!--                        sum_field="expected_revenue" recurring_revenue_sum_field="recurring_revenue_monthly"-->
+<!--                        help="This bar allows to filter the opportunities based on scheduled activities."/>-->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <t t-set="lost_ribbon" t-value="!record.active.raw_value and record.probability and record.probability.raw_value == 0"/>
+                            <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} #{lost_ribbon ? 'oe_kanban_card_ribbon' : ''} oe_kanban_global_click oe_kanban_card d-flex flex-column">
+                                <div class="ribbon ribbon-top-right"
+                                    attrs="{'invisible': [('active', '=', True)]}">
+                                    <span class="bg-danger">Archiver</span>
+                                </div>
+
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a class="dropdown-toggle o-no-caret btn" role="button" data-bs-toggle="dropdown" data-bs-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Modifier</a></t>
+                                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Supprimer</a></t>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_content flex-grow-1">
+                                    <div class="o_kanban_record_title oe_kanban_details">
+                                        <strong><field name="name"/></strong>
+                                    </div>
+                                    <div class="o_kanban_record_subtitle">
+                                        <t t-if="record.mobile.raw_value">
+                                            <field name="mobile" widget="phone"/>
+                                        </t>
+<!--                                        <t t-if="record.recurring_revenue and record.recurring_revenue.raw_value">-->
+<!--                                            <field name="recurring_revenue" widget="monetary" options="{'currency_field': 'company_currency'}" groups="crm.group_use_recurring_revenues"/>-->
+<!--                                            <field name="recurring_plan" groups="crm.group_use_recurring_revenues"/>-->
+<!--                                        </t>-->
+                                    </div>
+                                    <div>
+                                        <span class="o_text_overflow" t-if="record.partner_id.value" t-esc="record.partner_id.value"></span>
+                                    </div>
+                                    <div>
+                                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_footer">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="priority" widget="priority" groups="base.group_user"/>
+<!--                                            <field name="activity_ids" widget="kanban_activity"/>-->
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="user_id" widget="many2one_avatar_user"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
     <!-- Search View -->
     <record id="dossier_view_search" model="ir.ui.view">

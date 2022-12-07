@@ -23,6 +23,8 @@ class Stage(models.Model):
     sequence = fields.Integer('Sequence', default=1, help="Used to order stages. Lower is better.")
     fold = fields.Boolean('Folded in Circuit',
         help='This stage is folded in the kanban view when there are no records in that stage to display.')
+    requirements = fields.Text('Requirements',
+                               help="Enter here the internal requirements for this stage (ex: Offer sent to customer). It will appear as a tooltip over the stage's name.")
 
     dossier_state = fields.Selection(
         [('assistant', 'Assistant'),

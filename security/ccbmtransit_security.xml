@@ -34,6 +34,11 @@
             <field name="category_id" ref="ccbm_transit_groups"/>
             <field name="implied_ids" eval="[(4, ref('group_ccbmtransit_user'))]"/>
         </record>
+        <record id="group_ccbmtransit_dga" model="res.groups">
+            <field name="name">DGA</field>
+            <field name="category_id" ref="ccbm_transit_groups"/>
+            <field name="implied_ids" eval="[(4, ref('group_ccbmtransit_user'))]"/>
+        </record>
 
         <!-- <record id="group_ccbmtransit_dg" model="res.groups">
             <field name="name">DG</field>

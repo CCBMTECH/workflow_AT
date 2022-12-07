@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, date
 from itertools import groupby
 from markupsafe import Markup
 
@@ -9,6 +9,7 @@ from odoo.osv import expression
 from odoo.tools import float_is_zero, format_amount, format_date, html_keep_url, is_html_empty
 from odoo.tools.sql import create_index
 
+from . import transit_stage
 
 READONLY_FIELD_STATES = {
     state: [('readonly', True)]
@@ -26,6 +27,7 @@ LOCKED_FIELD_STATES = {
 class Dossier(models.Model):
     _name = "dossier"
     _description = "Dossier"
+    _inherit = ['mail.activity.mixin',]
 
     # # Pipeline/Circuit
     @api.model
@@ -64,6 +66,10 @@ class Dossier(models.Model):
         states=READONLY_FIELD_STATES,
         domain="[('type', '!=', 'note_details'), ('company_id', 'in', (False, company_id))]"
     )
+    telephone = fields.Char(related='partner_id.phone', readonly=True, string='Telephone')
+    mobile = fields.Char(related='partner_id.mobile', readonly=False, string='Mobile')
+    email = fields.Char(related='partner_id.email', readonly=False, string='Email')
+    #num_identity = fields.Char(related='partner_id.cni_passport', readonly=True, string='Numero Identity')
 
     description = fields.Html('Notes')
     active = fields.Boolean('Active', default=True, tracking=True)
@@ -107,11 +113,26 @@ class Dossier(models.Model):
     date_closed = fields.Datetime('Closed Date', readonly=True, copy=False)
 
     # # Pipeline management
-    # priority = fields.Selection(
-    #     transit_stage.AVAILABLE_PRIORITIES, string='Priority', index=True,
-    #     default=transit_stage.AVAILABLE_PRIORITIES[0][0])
-    stage_id = fields.Many2one('transit.stage', default=_default_transit_stage)
+    priority = fields.Selection(
+        transit_stage.AVAILABLE_PRIORITIES, string='Priority', index=True,
+        default=transit_stage.AVAILABLE_PRIORITIES[0][0])
     color = fields.Integer('Color Index', default=0)
+    stage_id = fields.Many2one('transit.stage', string='Stage', copy=False,
+                               index=True, tracking=True, readonly=False, store=True,
+                               compute='_compute_stage_id', default=_default_transit_stage,
+                               group_expand='_read_group_stage_ids', ondelete='restrict',
+                               #domain="['|', ('team_id', '=', False), ('team_id', '=', team_id)]"
+                               )
+    kanban_state = fields.Selection([
+        ('grey', 'No next activity planned'),
+        ('red', 'Next activity late'),
+        ('green', 'Next activity is planned')], string='Kanban State',
+        compute='_compute_kanban_state'
+    )
+    tag_ids = fields.Many2many(
+        'crm.tag', 'dossier_tag_rel', 'doss_id', 'tag_id', string='Tags',
+        help="Classify and analyze your dossier categories like: Training, Service")
+
 
     state = fields.Selection(
         [('assistant', 'Assistant'),
@@ -154,6 +175,38 @@ class Dossier(models.Model):
         for dossier in self:
             if not dossier.user_id:
                 dossier.user_id = dossier.partner_id.user_id or dossier.partner_id.commercial_partner_id.user_id or self.env.user
+    @api.depends('activity_date_deadline')
+    def _compute_kanban_state(self):
+        today = date.today()
+        for doss in self:
+            kanban_state = 'grey'
+            if doss.activity_date_deadline:
+                lead_date = fields.Date.from_string(doss.activity_date_deadline)
+                if lead_date >= today:
+                    kanban_state = 'green'
+                else:
+                    kanban_state = 'red'
+            doss.kanban_state = kanban_state
+    @api.model
+    def _read_group_stage_ids(self, stages, domain, order):
+        # retrieve team_id from the context and write the domain
+        #       récupérer le team_id du contexte et écrire le domaine
+        # - ('id', 'in', stages.ids): add columns that should be present
+        #       ajouter les colonnes qui devraient être présentes
+        # - OR ('fold', '=', False): add default columns that are not folded
+        #       ajouter les colonnes par défaut qui ne sont pas pliées
+        # - OR ('team_ids', '=', team_id), ('fold', '=', False) if team_id: add team columns that are not folded
+        # user_id = self._context.get('default_user_id')
+        # if user_id:
+        #     search_domain = ['|', ('id', 'in', stages.ids), '|', ('user_id', '=', False), ('user_id', '=', user_id)]
+        # else:
+        #     search_domain = ['|', ('id', 'in', stages.ids), ('user_id', '=', False)]
+        #
+        # # perform search
+        # stage_ids = stages._search(search_domain, order=order, access_rights_uid=SUPERUSER_ID)
+        # return stages.browse(stage_ids)
+
+        return stages.search([], order=order)
 
     # === CRUD METHODS ===#
 
